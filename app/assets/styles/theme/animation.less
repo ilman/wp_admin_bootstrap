@@ -1,0 +1,15 @@
+.inview-parent{
+	position: relative;
+	.inview-child{
+		position:absolute; left:0; top:0; display:block !important; opacity:0;
+	}
+	&.anim-inview{
+		.inview-child{ position:relative; opacity:1; }
+	}
+}
+
+.anim-js-hover {
+	-webkit-animation-duration: 1s;
+}
+
+

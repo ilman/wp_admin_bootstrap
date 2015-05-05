@@ -1,0 +1,27 @@
+@import "../../vendors/bootstrap/less/variables.less";
+@import "../../vendors//bootstrap/less/mixins.less";
+@import 'sg_theme/style.less';
+@import 'theme_option.less';
+
+// @import 'app/styles/theme/accent.less';
+
+img{ max-width:100%; }
+// body{ height:auto; min-height:100%; }
+
+
+.sgtb-select-image{
+	img{ border:@base-border-color solid 2px; padding:2px; }
+	input{ display:none; }
+	input:checked + img{ border-color:@brand-primary; }
+}
+
+.input-slider{
+	.slider-ui{
+		margin-bottom:10px;
+	}
+}
+
+.sgtb-input-group{
+	input{ margin:0; }
+	.bootstrap-touchspin-down{  }
+}

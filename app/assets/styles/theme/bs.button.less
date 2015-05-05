@@ -1,0 +1,32 @@
+.btn{
+	border-radius:2px;
+	.fa{ color:inherit; }
+}
+
+.btn-primary {
+	.button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+.btn-default{
+	background-color:#ddd;
+	border-color:#ccc;
+}
+
+.btn-circle{
+	&, &:before, &:after{
+		border-radius:50%;
+	}
+}
+
+.btn-circle, .btn-square{
+	padding:6px 10px;
+	&.btn-lg{
+		padding:10px 14px;
+	}
+	&.btn-sm{
+		padding:5px 9px;
+	}
+	&.btn-xs{
+		padding:1px 5px;
+	}
+}

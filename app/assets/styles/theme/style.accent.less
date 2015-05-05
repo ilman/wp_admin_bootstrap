@@ -1,0 +1,101 @@
+*[class^='bg-'], *[class*='bg-']{
+	color:#fff !important;
+}
+
+.bg-gray{ color:@text-color !important; }
+.bg-white{ color:@text-color !important; }
+.bg-none{ background:none !important; }
+
+.bg-primary, .bg-invert{
+	&, a{ color:#fff; }
+}
+
+
+/*---basic---*/
+
+//buttons
+.btn-primary{
+	background-color:@brand-primary;
+	border-color:darken(@brand-primary,10%);
+}
+
+.btn-icon.btn-outline{
+	&.btn-primary{ border-color:@brand-primary; }
+}
+
+.btn-outline, .btn-invert, .btn-icon.btn-outline:hover{
+	&.btn-primary{ color:@brand-primary; }
+}
+
+//nav pills
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+	background:@brand-primary;
+}
+
+/*---components---*/
+
+//tabs
+
+
+.pagination{
+	>li{
+		>*{
+			color:@brand-primary !important;
+			margin:0 10px;
+		}
+		>:hover,*:focus{
+			color:darken(@brand-primary,20%) !important;
+		}
+	}
+	>.active{
+		>*,>*:hover,>*:focus{
+			background-color:@brand-primary !important;
+			border-color:@brand-primary !important;
+			color:#fff !important; 
+		}
+	}
+	>.disabled{
+		>*,>*:hover,>*:focus{
+			color:#999 !important;
+		}
+	}
+}
+
+/*---misc element---*/
+
+.anim-ch .hover-body{
+	background:@brand-primary;
+	background:fade(@brand-primary,90%);
+	color:#fff;
+}
+
+.flex-direction-nav a{
+	background:@brand-primary;
+	color:#fff;
+}
+
+.post-title{
+	color:@brand-primary;
+}
+
+/*---animation---*/
+
+.hover-hollow {
+	box-shadow: inset 0 0 0 4px @brand-primary, 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hover-hollow:hover, .hover-parent:hover .hover-hollow,
+.hover-hollow:hover .fa, .hover-parent:hover .hover-hollow .fa{ 
+	color:@brand-primary;
+}
+
+
+.block:hover{
+	.block-meta{
+		background:@brand-primary;
+		color:#fff;
+		a{
+			color:#fff;
+		}
+	}
+}

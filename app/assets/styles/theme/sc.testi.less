@@ -1,0 +1,35 @@
+
+.testi-callout{
+	.testi-body{ 
+		padding:10px 15px; position: relative;
+		&:before, &:after{ position:absolute; content:' '; display:block; width:0; height:0; }
+	}
+	&.align-center{
+		.testi-body{
+			&:before, &:after{ left:50%; margin-left:-10px; }
+		}
+	}
+	&.testi-border{
+		.testi-body{
+			border:#ddd solid 1px;
+			&:before{ border:solid 10px; border-color:#ddd transparent transparent; bottom:-20px; }
+			&:after{ border:solid 10px; border-color:#fff transparent transparent; bottom:-19px; }
+		}
+	}
+	&.testi-filled{
+		.testi-body{
+			background:#eee;
+			&:before{ border:solid 10px; border-color:#eee transparent transparent; bottom:-20px; }
+		}
+	}
+}
+
+.thumb-bottom{
+	.block-thumb{ display:none; }
+}
+
+.testi-list{
+	&.list-carousel{
+		blockquote{ border:0 none; }
+	}
+}

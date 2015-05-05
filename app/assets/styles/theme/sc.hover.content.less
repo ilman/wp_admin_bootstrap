@@ -1,0 +1,324 @@
+.anim-ch{
+	position:relative; margin-bottom:20px;
+	.hover-body, .hover-thumb, .hover-image{
+		-webkit-transition:all 0.5s;
+		transition:all 0.5s;
+	}
+	.hover-body{
+		position:absolute;
+		display:block;
+		background:#ddd;
+		opacity:0;
+		visibility:hidden;
+		padding:10px;
+	}
+	.hover-thumb{
+		margin:0;
+		overflow:hidden;
+	}
+}
+
+.hover-body{
+	.btn{ margin:0 round(@base-margin/3); }
+}
+
+/*fade in*/
+.ch-fade-in{
+	.hover-body{
+		left:0; top:0;
+		width:100%; height:100%;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+	}
+}
+
+
+/*rotate in*/
+.ch-rotate-in{
+    .hover-body{
+    	left:0; top:0;
+	    width:100%;
+	    height:100%;
+	    -webkit-transform: rotate(90deg) scale(0.1);
+	    transform: rotate(90deg) scale(0.1);
+    }
+    &:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform: rotate(360deg) scale(1);
+		transform: rotate(360deg) scale(1);
+	}
+}
+
+
+/*flip in*/
+.ch-flip-in{
+	-webkit-perspective: 500;
+    	-webkit-transform-style: preserve-3d;
+    .hover-body{
+    	left:0; top:0;
+	    width:100%;
+	    height:100%;
+	    -webkit-transform: rotateY(180deg);
+  		transform: rotateY(180deg);
+    }
+    &:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+}
+
+
+/*zoom in*/
+.ch-zoom-in{
+    .hover-body{
+    	left:0; top:0;
+	    width:100%;
+	    height:100%;
+	    -webkit-transform: scale(0.1);
+  		transform: scale(0.1);
+    }
+    &:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform: scale(1);
+  		transform: scale(1);
+	}
+}
+
+
+/*slide in*/
+.ch-slide-in-top{
+	.hover-body{
+		left:0; top:0;
+		width:100%; height:0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		height:100%;
+	}
+}
+
+.ch-slide-in-bottom{
+	.hover-body{
+		left:0; bottom:0;
+		width:100%; height:0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		height:100%;
+	}
+}
+
+.ch-slide-in-left{
+	.hover-body{
+		left:0; bottom:0;
+		width:100%; height:100%;
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0;
+		-webkit-transform:scaleX(0);
+		transform:scaleX(0);
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform:scaleX(1);
+		transform:scaleX(1);
+	}
+}
+
+.ch-slide-in-right{
+	.hover-body{
+		left:0; bottom:0;
+		width:100%; height:100%;
+		-webkit-transform-origin:100% 0;
+		transform-origin:100% 0;
+		-webkit-transform:scaleX(0);
+		transform:scaleX(0);
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform:scaleX(1);
+		transform:scaleX(1);
+	}
+}
+
+
+
+/*push in*/
+.ch-push-in-top{
+	.hover-body{
+		left:0; top:0;
+		width:100%; height:0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		height:100%;
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateY(100%);
+		transform:translateY(100%);
+	}
+}
+
+.ch-push-in-bottom{
+	.hover-body{
+		left:0; bottom:0;
+		width:100%; height:0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		height:100%;
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateY(-100%);
+		transform:translateY(-100%);
+	}
+}
+
+.ch-push-in-left{
+	.hover-body{
+		left:0; bottom:0;
+		width:0; height:100%;
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		width:100%;
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateX(100%);
+		transform:translateX(100%);
+	}
+}
+
+.ch-push-in-right{
+	.hover-body{
+		right:0; bottom:0;
+		width:0; height:100%;
+		-webkit-transform-origin:100% 0;
+		transform-origin:100% 0;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		width:100%;
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateX(-100%);
+		transform:translateX(-100%);
+	}
+}
+
+
+
+
+
+/*hinge in*/
+.ch-hinge-in-top{
+	.hover-body{
+		left:0; top:0;
+		width:100%; height:50%;
+		-webkit-transform-origin:center top;
+		transform-origin:center top;
+		-webkit-transform:perspective(500px) rotateX(90deg);
+		transform:perspective(500px) rotateX(90deg);
+		opacity:1;
+		visibility:visible;
+	}
+	&:hover .hover-body{
+		-webkit-transform:perspective(0) rotateX(0);
+		transform:perspective(0) rotateX(0);
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateY(50px);
+		transform:translateY(50px);
+	}
+}
+
+.ch-hinge-in-bottom{
+	.hover-body{
+		left:0; bottom:0;
+		width:100%; height:50%;
+		-webkit-transform-origin:center bottom;
+		transform-origin:center bottom;
+		-webkit-transform:perspective(500px) rotateX(-90deg);
+		transform:perspective(500px) rotateX(-90deg);
+		opacity:1;
+		visibility:visible;
+	}
+	&:hover .hover-body{
+		-webkit-transform:perspective(0) rotateX(0);
+		transform:perspective(0) rotateX(0);
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateY(-50px);
+		transform:translateY(-50px);
+	}
+}
+
+.ch-hinge-in-left{
+	.hover-body{
+		left:0; bottom:0;
+		width:50%; height:100%;
+		-webkit-transform-origin:left center;
+		transform-origin:left center;
+		-webkit-transform:perspective(500px) rotateY(-90deg);
+		transform:perspective(500px) rotateY(-90deg);
+		opacity:1;
+		visibility:visible;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform:perspective(0) rotateY(0);
+		transform:perspective(0) rotateY(0);
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateX(50px);
+		transform:translateX(50px);
+	}
+}
+
+.ch-hinge-in-right{
+	.hover-body{
+		right:0; bottom:0;
+		width:50%; height:100%;
+		-webkit-transform-origin:right center;
+		transform-origin:right center;
+		-webkit-transform:perspective(500px) rotateY(90deg);
+		transform:perspective(500px) rotateY(90deg);
+		opacity:1;
+		visibility:visible;
+	}
+	&:hover .hover-body{
+		opacity:1;
+		visibility:visible;
+		-webkit-transform:perspective(0) rotateY(0);
+		transform:perspective(0) rotateY(0);
+	}
+	&:hover .hover-image{
+		-webkit-transform:translateX(-50px);
+		transform:translateX(-50px);
+	}
+}
+
+.ch-push-in-top, .ch-push-in-bottom, 
+.ch-push-in-left, .ch-push-in-right,
+.ch-hinge-in-top, .ch-hinge-in-bottom, 
+.ch-hinge-in-left, .ch-hinge-in-right{
+	.hover-body{
+		background:@brand-primary !important;
+	}
+}
