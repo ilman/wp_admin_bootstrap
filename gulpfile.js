@@ -29,14 +29,14 @@ gulp.task('styles', function () {
       require('autoprefixer-core')({browsers: ['last 1 version']})
     ]))
     // .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/assets/styles'))
     .pipe(reload({stream: true})); 
 });
 
 
 gulp.task('bs-styles', function () {
 
-  return gulp.src('app/styles/bootstrap.less')
+  return gulp.src('app/assets/styles/bootstrap.less')
     .pipe($.debug())
     .pipe($.plumber({
         errorHandler: function (err) {
@@ -59,7 +59,7 @@ gulp.task('bs-styles', function () {
     .pipe($.replace(/\.sgtb-3/g, '.3'))
     .pipe($.replace(/\.sgtb-6/g, '.6'))
     // .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/assets/styles'))
     .pipe(reload({stream: true})); 
 });
 
@@ -74,11 +74,7 @@ gulp.task('jshint', function () {
 
 gulp.task('scripts', function () {
   return gulp.src([
-      'app/assets/scripts/vendors.js', 
-      'app/assets/scripts/plugins.js', 
-      'app/assets/scripts/app.js', 
-      'app/assets/scripts/form.js', 
-      'app/assets/scripts/fonts.js', 
+      'app/assets/scripts/*.js', 
     ])
     .pipe($.debug())
     .pipe($.plumber({
@@ -95,7 +91,7 @@ gulp.task('scripts', function () {
     .pipe($.rename(function(path){
       path.extname = ".min.js";
     }))
-    .pipe(gulp.dest('.tmp/scripts')); 
+    .pipe(gulp.dest('.tmp/assets/scripts')); 
 });
 
 
@@ -137,7 +133,7 @@ gulp.task('html-tmp', function () {
 });
 
 gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
+  return gulp.src('app/assets/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -145,14 +141,14 @@ gulp.task('images', function () {
       // as hooks for embedding and styling
       svgoPlugins: [{cleanupIDs: false}]
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('.tmp/assets/images'));
 });
 
 gulp.task('fonts', function () {
   return gulp.src(require('main-bower-files')({
     filter: '**/*.{eot,svg,ttf,woff,woff2}'
   }).concat('app/fonts/**/*'))
-    .pipe(gulp.dest('.tmp/fonts'))
+    .pipe(gulp.dest('.tmp/assets/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
 
@@ -182,19 +178,21 @@ gulp.task('serve', ['html-tmp', 'styles', 'bs-styles', 'scripts', 'fonts'], func
 
   // watch for changes
   gulp.watch([
-    'app/*.html',
+    'app/**/*.html',
     'app/assets/scripts/**/*.js',
     'app/assets/styles/**/*.{less,css}',
     'app/assets/images/**/*',
     'app/vendors/**/*',
-    '.tmp/fonts/**/*'
+    '.tmp/assets/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/assets/styles/**/*.{less,css}', ['styles', 'bs-styles']);
+  gulp.watch('app/assets/styles/**/*.{less,css}', ['styles']);
+  gulp.watch('app/assets/styles/bootstrap.less', ['bs-styles']);
   gulp.watch('app/assets/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/assets/images/**/*', ['images']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('app/vendors/**/*', ['styles', 'scripts']);
-  gulp.watch('app/*.html', ['html-tmp']);
+  gulp.watch('app/**/*.html', ['html-tmp']);
   gulp.watch('bower.json', ['fonts']);
 });
 
